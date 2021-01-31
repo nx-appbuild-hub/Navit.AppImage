@@ -18,17 +18,19 @@ all:  clean
 	wget --output-document=$(PWD)/build/build.tar.gz https://22549-30791823-gh.circle-artifacts.com/0/linux/_CPack_Packages/Linux/TGZ/navit.tar.gz
 	tar -xf $(PWD)/build/build.tar.gz -C $(PWD)/build
 
-	echo 'case "$${1}" in' 					      >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '    "--maptool") exec $${APPDIR}/bin/maptool  $${@:2} ;;' >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '    *)           exec $${APPDIR}/bin/navit    $${@}   ;;' >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo 'esac' 						      >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	
+	echo '' 										>> $(PWD)/build/Boilerplate.AppDir/AppRun	
+	echo '' 										>> $(PWD)/build/Boilerplate.AppDir/AppRun			
+	echo 'case "$${1}" in' 					        			>> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '    "--maptool") exec $${APPDIR}/bin/maptool  $${@:2} ;;' 			>> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '    *)           exec $${APPDIR}/bin/navit    $${@}   ;;' 			>> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo 'esac' 						        			>> $(PWD)/build/Boilerplate.AppDir/AppRun
 	
 	
 	cp --force --recursive $(PWD)/build/navit/bin/* 	$(PWD)/build/Boilerplate.AppDir/bin
 	cp --force --recursive $(PWD)/build/navit/lib64/* 	$(PWD)/build/Boilerplate.AppDir/lib64
 	cp --force --recursive $(PWD)/build/navit/share/* 	$(PWD)/build/Boilerplate.AppDir/share
-
-	rm --force $(PWD)/build/Boilerplate.AppDir/*.desktop
+	cp --force --recursive $(PWD)/AppDir/*.xml 		$(PWD)/build/Boilerplate.AppDir/share/navit
 
 	cp --force $(PWD)/AppDir/*.png 		$(PWD)/build/Boilerplate.AppDir/ 	|| true
 	cp --force $(PWD)/AppDir/*.desktop 	$(PWD)/build/Boilerplate.AppDir/	|| true
