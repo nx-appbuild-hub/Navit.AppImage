@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Navit
+Comment=Navit is an open source (GPL) turn-by-turn navigation software for many OS
+Exec=AppRun %U
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=navit
+Categories=Utility;Science;
+StartupWMClass=Navit
+StartupNotify=true
