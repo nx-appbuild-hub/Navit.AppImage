@@ -15,7 +15,7 @@ all:  clean
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir
 	apprepo --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libatk-bridge2.0-0 libgtk2.0-0 libpangoxft-1.0-0 libprotobuf-c1 breeze-gtk-theme
 	
-	wget --output-document=$(PWD)/build/build.tar.gz https://22549-30791823-gh.circle-artifacts.com/0/linux/_CPack_Packages/Linux/TGZ/navit.tar.gz
+	wget --output-document=$(PWD)/build/build.tar.gz https://github.com/navit-gps/navit/releases/download/v0.5.5/navit-linux-amd64-0.5.5.tar.gz
 	tar -xf $(PWD)/build/build.tar.gz -C $(PWD)/build
 
 	
